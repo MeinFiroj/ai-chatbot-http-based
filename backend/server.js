@@ -1,6 +1,5 @@
 require('dotenv').config()
 const app = require("./src/app")
-require('../backend/.gitignore')
 
 
 
