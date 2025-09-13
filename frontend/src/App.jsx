@@ -7,13 +7,13 @@ const App = () => {
   const [msgs, setMsgs] = useState([]);
 
   const handleMessage = async () => {
+    if(inputText.trim()  === '') return;
     const userMsg = {
       id: Date.now(),
       timeStamp: new Date().toLocaleTimeString(),
       text: inputText,
       sender: "user",
     };
-
     setMsgs((previous) => [...previous, userMsg]);
 
     const {data} = await axios.post(
@@ -30,7 +30,6 @@ const App = () => {
       text: data.aiResponse,
       sender: "bot",
     };
-
     setMsgs((previous) => [...previous, botMsg]);
   };
 
